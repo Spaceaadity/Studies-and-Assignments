@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Getting to know jQuery Functions</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#toggle button').hide();
+			$('#slideDown img').hide();
+			var counter = 0;
+			$('#addClass').click(function() {
+				$('#addClass b').addClass('red');
+			});
+			$('#after').click(function() {
+				$('#after').after("<div class='surprise'><p>Surprise!!!</p></div>");
+			});
+			$('#append').click(function() {
+				$('#append').append("<p>I have been appended as an example!</p>");
+			});
+			$('#attr input').change(function() {
+				console.log("changed");
+				console.log($(this).is(":checked"));
+				if($(this).is(":checked")) {
+					$('#attr p').attr("style", "color:blue");
+				} else {
+					$('#attr p').attr("style", "color:black");
+				}
+			});
+			$('#before').click(function() {
+				$('#before').before("<div class='surprise'><p>Surprise!!!</p></div>")
+			}); //end of $('#before').click()
+			$('#html').click(function() {
+				$('#html p').html("See it works!");
+			});
+			$('#text p').click(function() {
+				var hello = "I am .text() at work.";
+				$("#text p:last").text(hello);
+			});
+			$('#val select').change(function() {
+				if ($('select').val() != 'Choose One'){
+					var msg = "You chose "+$('select').val();
+					console.log(msg);
+					
+				}
+			});
+			$('#toggle img').click(function() {
+				$('#toggle img').toggle("slow");
+				$('#toggle button').show();
+			});
+			$('#toggle button').click(function() {
+				$('#toggle button').hide();
+				$('#toggle img').toggle("slow")
+			});
+			$('#slideDown p').click(function() {
+				$('#slideDown img').slideDown("slow");
+			});
+			$('#slideToggle').click(function() {
+				$('#slideToggle').slideToggle("slow");
+			});
+			$('#slideUp p').click(function(){
+				$('#slideDown img').slideUp("slow");
+			});
+			$('#fadeOut p').click(function() {
+				$('#slideDown img').fadeOut("slow");
+			});
+			$('#fadeIn p').click(function() {
+				$('#slideDown img').fadeIn("slow");
+			});
+			$('input').focus(function(){
+				$(this).prev('label').css("display", "inline").fadeOut(1500);
+			});
+			$('#submit').click(function() {
+				var hi_you = "Hello " + $('.name').val() + " it seems you are " + $('.age').val() +" years of age";
+				console.log(hi_you);
+			});
+		}); //end of $(document).ready()
+	</script>
+</head>
+<body>
+	<div id="addClass">
+		<p>This is and <b>example</b> of what jQuery's .addClass() can do.</p>
+	</div><!-- #addClass -->
+	<div id="after">
+		<p>Look at the content added after this box! This is an example of jQuery's .after().</p>
+	</div><!-- #after -->
+	<div id="append">
+		<p>The next line examplifies jQuery's .append().</p>
+	</div><!-- #append -->
+	<div id="attr">
+		<input type="checkbox" name="example"><p>Check to see example!</p>
+	</div><!-- #attr -->
+	<div id="before">
+		<p>Like .after(), .before() will put things before this box.</p>
+	</div><!-- #before -->
+	<div id="html"> 
+		<p>JQuery's .html() plays with the html of an element selected. Click here make it happen!</p>
+	</div><!-- #html -->
+	<div id="text">
+		<p>Click here to see .text() in action. Pretty much the same as .html() but plays nice with XML too!</p>
+		<p></p>
+	</div><!-- #text -->
+	<div id="val">
+		<p>Check the console to see a message after you select one!</p>
+		<select>
+			<option>Choose One</option>
+			<option>Red</option>
+			<option>Yellow</option>
+			<option>Blue</option>
+		</select>
+	</div><!-- #val -->
+	<div id="toggle">
+		<p>Click the image toggle it away</p>
+		<img src="ruby_sapphire.png">
+		<button>Return picture</button>
+	</div><!-- #toggle -->
+	<div id="hide">
+		<p>In the toggle example you can also see .hide() in action. Note that the button is not visable until you click to toggle the image away and hides when you click it to bring the image.</p>
+	</div><!-- #hide -->
+	<div id="show">
+		<p>You can also see .show() at work in the .toggle() example. The button is written into the html but is told to hide until we click the image to toggle it away.</p>
+	</div><!-- #show -->
+	<div id="slideDown">
+		<p><b>Click</b> to see somthing appear!</p>
+		<img src="garnet.jpg">
+	</div><!-- #slideDown -->
+	<div id="slideToggle">
+		<p><b>Click</b> to see this line go bye-bye!</p>
+	</div><!-- #slideToggle -->
+	<div id="slideUp">
+		<p><b>Click</b> to hide the picture from the .slideDown() with a .slideUp()</p>
+	</div><!-- #slideUp -->
+	<div id="fadeOut">
+		<p>Get the image from the .slideDown() example to appear again then <b>click</b> to see an example of .fadeOut().</p>
+	</div><!-- #fadeOut -->
+	<div id="fadeIn">
+		<p><b>Click</b> to see the image fade back in, and example of .fadeIn().</p>
+	</div><!-- #fadeIn -->
+	<div id="focus">
+		<p>Please click on each field. .focus() will be enabled and you will see what you need to fill out. Check the consel after you submit the proper information.</p>
+			<label>Enter your name:</label>
+			<input type="text" class="name">
+		</br>
+			<label>Enter your age:</label>
+			<input type="text" class="age">
+			<button id="submit">Submit</button>
+	</div><!-- #focus -->
+	<div id="click">
+		<p>Through out this whole example you've clicked on different sections of the page and triggered happenings, seeing an example of jQuery's .click().</p>
+	</div><!-- #click -->
+</body>
+</html>
