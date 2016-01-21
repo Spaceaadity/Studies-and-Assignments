@@ -1,0 +1,2 @@
+## Synopsis
+This was an optional assignment. The example given was a product with a front and back view that when hovered on the image would switch from front view to back view with some information about product. I did the same concept but chose to use a cartoon as the background because fun.
