@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Ninja to Cat and Back</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('img').click(function() {
+				var source = $(this).attr('src');
+				$(this).attr('src', $(this).attr('alt-data-src'));
+				$(this).attr('alt-data-src', source);
+			});//end of $('img').click()
+		});//end of $(document).ready()
+	</script>
+</head>
+<body>
+	<h2>Click on images to create matching set and reveal full image</h2>
+	<div class="box">
+		<img src="ninja0.png" alt-data-src="cat0.png">
+		<img src="cat1.png" alt-data-src="ninja1.png">
+		<img src="ninja2.png" alt-data-src="cat2.png">
+		<img src="cat3.png" alt-data-src="ninja3.png">
+		<img src="ninja4.png" alt-data-src="cat4.png">
+	</div>
+</body>
+</html>
