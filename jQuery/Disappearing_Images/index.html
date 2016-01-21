@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Disappearing Images</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$('button').mouseenter(function() {
+			// console.log('entered');
+			$('button').addClass('glow');
+		});
+		$('button').mouseleave(function() {
+			$('button').removeClass('glow');
+		})
+		$('img').click(function() {
+			$(this).fadeOut(1500);
+		});//end of $('img').click()
+		$('button').click(function() {
+			$('img').each(function() {
+				$(this).fadeIn(1500);
+			})
+		});//end of $('#display').click()
+	});//end of $(document).ready()
+	</script>
+</head>
+<body>
+	<div id="content">
+		<div class="images">
+			<img src="image.jpg">
+			<img src="image.jpg">
+			<img src="image.jpg">
+			<img src="image.jpg">
+			<img src="image.jpg">
+			<img src="image.jpg">
+			<img src="image.jpg">
+			<img src="image.jpg">
+		</div>
+		<button>Display Images</button>
+	</div>
+</body>
+</html>
