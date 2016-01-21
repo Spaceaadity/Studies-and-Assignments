@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Fusion Breakdown</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('.info').hide();
+			$('img').hover(function(){
+				var source = $(this).attr('src');
+				$(this).attr('src', $(this).attr('alt-data-src'));
+				$(this).attr('alt-data-src', source);
+		// playing with a couple different events to get best function out of images and .info div
+				// $('img').click(function(){
+				// 	$(this).next('div.info').fadeIn(1000);
+				// });
+				// $(this).next('div.info').show();
+				// this paired with .hide() for the second part of hover also works but it is very glitchy when you run over it. I may go back and make it so that the info only shows when image is clicked on? it could be better
+			}, function() {
+				var source = $(this).attr('src');
+				$(this).attr('src', $(this).attr('alt-data-src'));
+				$(this).attr('alt-data-src', source);
+				// $(this).next('div.info').hide();
+			});//end of $('img').hover()
+			$('.image').hover(function() {
+				$(this).find('div.info').show();
+			},
+			function() {
+				$(this).find('div.info').hide();
+			});//end of $('.image').hover()
+		});//end of $(document).ready()
+	</script>
+</head>
+<body>
+	<div class="wrap">
+		<h2>Hover over image to find out who is apart of each Gem Fusion</h2>
+		<div class="image">
+			<img src="garnet.jpg" alt-data-src="ruby_sapphire.png">
+			<div class="info">
+				<p>Garnet is a fusion of Ruby and Sapphire</p>
+			</div>
+		</div>
+		<div class="image">
+			<img src="opal.jpg" alt-data-src="amathyst_pearl.png">
+			<div class="info">
+				<p>Opal is a fusion of Amathyst and Pearl</p>
+			</div>
+		</div>
+		<div class="image">
+			<img src="sugallite.png" alt-data-src="garnet_amathyst.png">
+			<div class="info">
+				<p>Sugallite is a fusion of Garnet and Amathyst</p>
+			</div>
+		</div>
+		<div class="image">
+			<img src="sardonyx.jpg" alt-data-src="pearl_garnet.png">
+			<div class="info">
+				<p>Sardonyx is a fusion of Pearl and Garnet</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
